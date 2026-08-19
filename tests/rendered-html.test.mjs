@@ -30,12 +30,17 @@ test("server-renders the Together product page", async () => {
   const html = await response.text();
   assert.match(
     html,
-    /<title>Together — Watch Anything\. Hear Everything\.<\/title>/i,
+    /<title>Together — Different Language\. Same Moment\.<\/title>/i,
   );
-  assert.match(html, /Bring worlds/);
-  assert.match(html, /Understand video in another language without sending it away\./);
-  assert.match(html, /PRIVATE BY ARCHITECTURE/);
-  assert.match(html, /iPhone \+ iPad/);
+  assert.match(html, /Different language\./);
+  assert.match(html, /Imported media and derived text are processed on device/);
+  assert.match(html, /Follow one line\./);
+  assert.match(html, /The device is the boundary\./);
+  assert.match(html, /iPhone and iPad/);
+  assert.match(html, /VTT · SRT · TTML · TXT · MD · JSON/);
+  assert.equal((html.match(/<h1\b/gi) ?? []).length, 1);
+  assert.equal((html.match(/<main\b/gi) ?? []).length, 1);
+  assert.match(html, /aria-label="Website caption comparison"/i);
   assert.match(html, /href="\/privacy"/);
   assert.match(html, /https:\/\/together\.kaizosha\.org\//);
   assert.match(html, /\/og\.png/);
@@ -43,6 +48,7 @@ test("server-renders the Together product page", async () => {
   assert.match(html, /iOS 26 or later; iPadOS 26 or later/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/i);
   assert.doesNotMatch(html, /macOS|Mac Catalyst/i);
+  assert.doesNotMatch(html, /section-band|step-grid|caption-demo/i);
 });
 
 test("server-renders the app-specific privacy notice", async () => {
@@ -54,8 +60,11 @@ test("server-renders the app-specific privacy notice", async () => {
   assert.match(html, /<title>Privacy Notice — Together<\/title>/i);
   assert.match(html, /Together Privacy Notice/);
   assert.match(html, /Together does not collect personal data\./);
-  assert.match(html, /ON-DEVICE PROCESSING/);
-  assert.match(html, /LOCAL STORAGE AND DELETION/);
+  assert.match(html, /On-device processing/);
+  assert.match(html, /Local storage and deletion/);
+  assert.match(html, /LAST UPDATED AUGUST 18, 2026/);
+  assert.equal((html.match(/<h1\b/gi) ?? []).length, 1);
+  assert.equal((html.match(/<main\b/gi) ?? []).length, 1);
   assert.match(html, /https:\/\/kaizosha\.org\/contact/);
   assert.doesNotMatch(html, /property="og:image"/i);
   assert.doesNotMatch(html, /"@type":"MobileApplication"/);
@@ -68,6 +77,8 @@ test("renders a clean noindex page for unknown routes", async () => {
   const html = await response.text();
   assert.match(html, /<title>Page Not Found — Together<\/title>/i);
   assert.match(html, /This page isn(?:&apos;|&#x27;|')t together\./i);
+  assert.equal((html.match(/<h1\b/gi) ?? []).length, 1);
+  assert.equal((html.match(/<main\b/gi) ?? []).length, 1);
   const robotsTags = html.match(/<meta[^>]+name="robots"[^>]*>/gi) ?? [];
   assert.equal(robotsTags.length, 1);
   assert.match(robotsTags[0], /content="noindex"/i);

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BrandMark } from "../brand-mark";
 
 export const metadata: Metadata = {
   title: "Privacy Notice",
@@ -32,43 +33,24 @@ export const metadata: Metadata = {
   },
 };
 
-function CompactMark() {
-  return (
-    <span className="brand-mark brand-mark--compact" aria-hidden="true">
-      <span className="brand-mark__unit">
-        <span className="brand-mark__bar" />
-        <span className="brand-mark__glyph">改</span>
-      </span>
-      <span className="brand-mark__unit">
-        <span className="brand-mark__bar" />
-        <span className="brand-mark__glyph">造</span>
-      </span>
-      <span className="brand-mark__unit">
-        <span className="brand-mark__bar" />
-        <span className="brand-mark__glyph">社</span>
-      </span>
-    </span>
-  );
-}
-
 export default function PrivacyPage() {
   return (
     <>
       <a className="skip-link" href="#privacy-content">
         Skip to content
       </a>
-      <div className="site-shell">
+      <div className="site-frame">
         <header className="file-bar">
           <Link className="file-brand" href="/">
-            <CompactMark />
-            <span>[ TOGETHER-PRIVACY.md ]</span>
+            <BrandMark compact />
+            <span>[ TOGETHER.privacy ]</span>
           </Link>
           <span>APP NOTICE / 2026-08-18</span>
         </header>
 
         <nav className="document-nav" aria-label="Document navigation">
-          <Link href="/">[ ← TOGETHER ]</Link>
-          <span>TOGETHER-PRIVACY.md</span>
+          <Link href="/">← TOGETHER</Link>
+          <span>PRIVACY / APP NOTICE</span>
         </nav>
 
         <main className="document-main" id="privacy-content" tabIndex={-1}>
@@ -84,7 +66,7 @@ export default function PrivacyPage() {
 
           <section className="legal-section" aria-labelledby="collected-title">
             <header>
-              <h2 id="collected-title">## DATA COLLECTED BY KAIZŌSHA</h2>
+              <h2 id="collected-title">Data collected by Kaizōsha</h2>
               <span>01</span>
             </header>
             <div>
@@ -104,7 +86,7 @@ export default function PrivacyPage() {
 
           <section className="legal-section" aria-labelledby="processing-title">
             <header>
-              <h2 id="processing-title">## ON-DEVICE PROCESSING</h2>
+              <h2 id="processing-title">On-device processing</h2>
               <span>02</span>
             </header>
             <div>
@@ -125,7 +107,7 @@ export default function PrivacyPage() {
 
           <section className="legal-section" aria-labelledby="permissions-title">
             <header>
-              <h2 id="permissions-title">## PERMISSIONS</h2>
+              <h2 id="permissions-title">Permissions</h2>
               <span>03</span>
             </header>
             <div>
@@ -155,7 +137,7 @@ export default function PrivacyPage() {
 
           <section className="legal-section" aria-labelledby="storage-title">
             <header>
-              <h2 id="storage-title">## LOCAL STORAGE AND DELETION</h2>
+              <h2 id="storage-title">Local storage and deletion</h2>
               <span>04</span>
             </header>
             <div>
@@ -187,7 +169,7 @@ export default function PrivacyPage() {
 
           <section className="legal-section" aria-labelledby="links-title">
             <header>
-              <h2 id="links-title">## EXTERNAL LINKS</h2>
+              <h2 id="links-title">External links</h2>
               <span>05</span>
             </header>
             <div>
@@ -202,7 +184,7 @@ export default function PrivacyPage() {
 
           <section className="legal-section" aria-labelledby="contact-title">
             <header>
-              <h2 id="contact-title">## CHANGES AND CONTACT</h2>
+              <h2 id="contact-title">Changes and contact</h2>
               <span>06</span>
             </header>
             <div>
@@ -220,11 +202,11 @@ export default function PrivacyPage() {
         </main>
 
         <footer className="site-footer">
-          <a href="https://kaizosha.org/">[ KAIZŌSHA ]</a>
+          <a href="https://kaizosha.org/">KAIZŌSHA</a>
           <nav aria-label="Legal and contact links">
-            <a href="https://kaizosha.org/terms">[ TERMS ]</a>
-            <a href="https://kaizosha.org/privacy">[ WEB PRIVACY ]</a>
-            <a href="https://kaizosha.org/contact">[ CONTACT ]</a>
+            <a href="https://kaizosha.org/terms">TERMS</a>
+            <a href="https://kaizosha.org/privacy">WEB PRIVACY</a>
+            <a href="https://kaizosha.org/contact">CONTACT</a>
           </nav>
           <span>002 / PRIVACY / EOF</span>
         </footer>

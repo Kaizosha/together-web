@@ -29,13 +29,13 @@ export default function NotFound() {
       <a className="skip-link" href="#not-found-content">
         Skip to content
       </a>
-      <div className="site-shell">
+      <div className="site-frame">
         <header className="file-bar">
-          <span>[ 404.md ]</span>
+          <span>[ 404.signal ]</span>
           <span>TOGETHER / NOT FOUND</span>
         </header>
         <main
-          className="closing"
+          className="not-found"
           id="not-found-content"
           tabIndex={-1}
           aria-labelledby="not-found-title"
@@ -43,12 +43,12 @@ export default function NotFound() {
           <p className="eyebrow">404 / END OF FILE</p>
           <h1 id="not-found-title">This page isn&apos;t together.</h1>
           <p>The address may have moved, or it may never have existed.</p>
-          <Link className="literal-link literal-link--large" href="/">
-            [ RETURN TO TOGETHER → ]
+          <Link className="text-link" href="/">
+            RETURN TO TOGETHER →
           </Link>
         </main>
         <footer className="site-footer">
-          <a href="https://kaizosha.org/">[ KAIZŌSHA ]</a>
+          <a href="https://kaizosha.org/">KAIZŌSHA</a>
           <span>404 / TOGETHER / EOF</span>
         </footer>
       </div>

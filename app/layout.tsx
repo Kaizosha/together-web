@@ -4,11 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://together.kaizosha.org"),
   title: {
-    default: "Together — Watch Anything. Hear Everything.",
+    default: "Together — Different Language. Same Moment.",
     template: "%s — Together",
   },
   description:
-    "Together brings private, on-device captions and translation to video on iPhone and iPad.",
+    "Together captions and optionally translates selected videos on iPhone and iPad without uploading media to Kaizōsha.",
   applicationName: "Together",
   authors: [{ name: "Kaizōsha", url: "https://kaizosha.org/" }],
   creator: "Kaizōsha",
@@ -24,29 +24,29 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     siteName: "Together by Kaizōsha",
-    title: "Together — Watch Anything. Hear Everything.",
+    title: "Together — Different Language. Same Moment.",
     description:
-      "Private, on-device video captions and translation for iPhone and iPad.",
+      "Together captions and optionally translates selected videos on iPhone and iPad without uploading media to Kaizōsha.",
     locale: "en_US",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Together — Bring worlds together. Watch anything. Hear everything.",
+        alt: "Together — Different language. Same moment.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Together — Watch Anything. Hear Everything.",
+    title: "Together — Different Language. Same Moment.",
     description:
-      "Private, on-device video captions and translation for iPhone and iPad.",
+      "Together captions and optionally translates selected videos on iPhone and iPad without uploading media to Kaizōsha.",
     site: "@KaizoshaX",
     images: [
       {
         url: "/og.png",
-        alt: "Together — Bring worlds together. Watch anything. Hear everything.",
+        alt: "Together — Different language. Same moment.",
       },
     ],
   },
