@@ -1,0 +1,18 @@
+{
+  "name": "Together by Kaizōsha",
+  "short_name": "Together",
+  "description": "Private, on-device captions and optional translation for selected videos on iPhone and iPad.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#101010",
+  "theme_color": "#101010",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,40 +1,33 @@
 # Together website
 
-The standalone product site for Together, Kaizōsha’s local-first video-captioning
-app for iPhone and iPad. The intended public hostname is
-`https://together.kaizosha.org`.
+The dependency-free static product site for Together, Kaizōsha’s local-first
+video-captioning app for iPhone and iPad.
 
-The site uses the same two-tone markdown system and spatial product structure as
-the main Kaizōsha website. Its opening frame matches the Kaizōsha homepage
-handoff exactly, then turns Caption, Translate, Export, and Private into four
-physical fields that expand through hover, focus, or touch. Product copy and the
-app-specific privacy notice come from the adjacent Together iOS project.
+The root route is the direct continuation of the expanded Together product cell
+on `kaizosha.org`. It keeps the same frame, toolbar, status bar, two-tone system,
+compact mark, typography, grid, and motion. Scrolling the one expanded surface
+reveals the product details without changing to a second interface.
 
-## Local development
+## Local preview
 
-Requires Node.js 22.13 or newer.
-
-```bash
-npm install
-npm run dev
+```sh
+python3 tools/dev-server.py 5173
 ```
 
-Open `http://localhost:3000`.
+## Production build
 
-## Validate
-
-```bash
-npm run build
-node --test tests/rendered-html.test.mjs
+```sh
+./tools/build-site.sh
 ```
 
 ## Routes
 
-- `/` — interactive Together capability directory
-- `/privacy` — Together’s app-specific privacy notice
-- `/manifest.webmanifest`, `/robots.txt`, and `/sitemap.xml` — app and search metadata
+- `/` — permanently expanded Together product surface
+- `/privacy` — Together’s canonical app privacy notice
+- `/404.html` — unknown-route recovery
+- `/site.webmanifest`, `/robots.txt`, and `/sitemap.xml` — app and search metadata
 
-Hosting configuration lives in `.openai/hosting.json`. The Cloudflare worker
-adds canonical routing, conservative caching, and baseline security headers.
-Optional D1/R2 starter infrastructure remains available but is not used by the
-current site.
+There is no package manager, frontend framework, TypeScript, runtime API,
+database, account, analytics SDK, or build dependency. The explicit build
+allowlist produces `dist/client` plus the static Cloudflare worker entrypoint at
+`dist/server/index.js`.

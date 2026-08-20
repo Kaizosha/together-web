@@ -1,0 +1,280 @@
+/* Together continues the exact expanded product-cell grammar from kaizosha.org. */
+.together-return a {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  padding-inline: 0.2rem;
+  color: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition:
+    background-color var(--speed) ease,
+    color var(--speed) ease;
+}
+
+.together-return a:hover,
+.together-return a:focus-visible,
+.together-return a:active {
+  background: var(--ink);
+  color: var(--surface);
+  outline-color: var(--ink);
+}
+
+.together-main .product-cell__name {
+  cursor: text;
+}
+
+.together-main .product-cell.is-active .product-cell__name:hover,
+.together-main .product-cell.is-active .product-cell__name:focus-visible,
+.together-main .product-cell.is-active .product-cell__name:active {
+  background: var(--ink);
+  box-shadow: none;
+  color: var(--surface);
+}
+
+.together-main .product-cell__actions a:not(.product-cell__explore):hover,
+.together-main .product-cell__actions a:not(.product-cell__explore):focus-visible,
+.together-main .product-cell__actions a:not(.product-cell__explore):active {
+  background: var(--ink);
+  color: var(--surface);
+  outline-color: var(--ink);
+}
+
+.product-cell.is-active .together-scroll {
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scroll-padding-block: clamp(1rem, 4vw, 3rem);
+  scrollbar-color: var(--line) transparent;
+  scrollbar-width: thin;
+}
+
+.together-scroll:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -0.45rem;
+}
+
+.together-lead {
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(2rem, 6vw, 5.5rem);
+}
+
+.home-main[data-active-slot="top-right"] .together-lead,
+.home-main[data-active-slot="bottom-right"] .together-lead {
+  align-items: flex-end;
+}
+
+.together-cue {
+  --scroll-handoff-progress: 1;
+  display: block;
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.together-cue:hover,
+.together-cue:focus-visible,
+.together-cue:active {
+  color: var(--ink);
+  outline-color: var(--ink);
+}
+
+.together-continuation {
+  width: 100%;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.together-section {
+  width: min(72%, 52rem);
+  padding: clamp(2rem, 6vw, 5.5rem) 0;
+  margin-inline: 0 auto;
+  border-bottom: 1px dashed var(--line-soft);
+  scroll-margin-top: 1rem;
+}
+
+.home-main[data-active-slot="top-right"] .together-section,
+.home-main[data-active-slot="bottom-right"] .together-section {
+  margin-inline: auto 0;
+}
+
+.together-section__index {
+  margin: 0 0 1rem;
+  color: var(--ink-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.together-section__title {
+  margin: 0 0 1.25rem;
+  font: inherit;
+  font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.together-section__title::before {
+  content: "## ";
+  color: var(--ink-muted);
+}
+
+.together-section > p:not(.together-section__index, .together-section__action) {
+  max-width: var(--measure);
+  margin: 0;
+  padding-block: 0.75rem;
+  border-top: 1px solid var(--line-soft);
+  line-height: 1.8;
+}
+
+.together-section__action {
+  margin: 1.5rem 0 0;
+}
+
+.together-section__action a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  color: var(--surface);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.together-section__action a:hover,
+.together-section__action a:focus-visible,
+.together-section__action a:active {
+  background: var(--surface);
+  color: var(--ink);
+  outline-color: var(--ink);
+}
+
+.together-steps {
+  padding: 0;
+  margin: 1.5rem 0 0;
+  border-top: 1px solid var(--line);
+  counter-reset: together-step;
+  list-style: none;
+}
+
+.together-steps li {
+  display: grid;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  counter-increment: together-step;
+  gap: 1rem;
+  grid-template-columns: 3ch minmax(0, 1fr);
+}
+
+.together-steps li::before {
+  color: var(--ink-muted);
+  content: counter(together-step, decimal-leading-zero);
+}
+
+.together-data {
+  margin: 1.5rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.together-data > div {
+  display: grid;
+  border-bottom: 1px solid var(--line-soft);
+  grid-template-columns: minmax(8rem, 0.35fr) minmax(0, 1fr);
+}
+
+.together-data dt,
+.together-data dd {
+  margin: 0;
+  padding: 0.8rem;
+}
+
+.together-data dt {
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+.together-data dt::before {
+  content: "- ";
+}
+
+.together-data dd {
+  border-left: 1px solid var(--line-soft);
+  line-height: 1.75;
+}
+
+.together-eof {
+  width: min(72%, 52rem);
+  padding: 1.25rem 0 8rem;
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-main[data-active-slot="top-right"] .together-eof,
+.home-main[data-active-slot="bottom-right"] .together-eof {
+  margin-left: auto;
+}
+
+@media (max-width: 640px) {
+  .together-lead {
+    min-height: 100%;
+    padding: 1rem;
+  }
+
+  .together-section,
+  .together-eof {
+    width: 100%;
+  }
+
+  .together-section {
+    padding: 2rem 1rem;
+  }
+
+  .together-eof {
+    padding: 1rem 1rem 7rem;
+  }
+
+  .together-data > div {
+    grid-template-columns: 1fr;
+  }
+
+  .together-data dd {
+    padding-top: 0;
+    border-left: 0;
+  }
+
+  .together-return a {
+    min-height: 2.5rem;
+    font-size: 0.62rem;
+  }
+}
+
+@media (max-height: 560px) {
+  .together-lead {
+    min-height: 100%;
+    justify-content: flex-start;
+    padding: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-cell.is-active .together-scroll {
+    scroll-behavior: auto;
+  }
+}
