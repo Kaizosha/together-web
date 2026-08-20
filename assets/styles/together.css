@@ -89,10 +89,17 @@
 }
 
 .together-continuation {
+  --together-continuation-gutter: clamp(2rem, 6vw, 5.5rem);
   width: 100%;
+  padding-inline: var(--together-continuation-gutter) 0;
   border-top: 1px solid var(--line);
   background: var(--surface);
   color: var(--ink);
+}
+
+.home-main[data-active-slot="top-right"] .together-continuation,
+.home-main[data-active-slot="bottom-right"] .together-continuation {
+  padding-inline: 0 var(--together-continuation-gutter);
 }
 
 .together-section {
@@ -232,6 +239,10 @@
 }
 
 @media (max-width: 640px) {
+  .together-continuation {
+    padding-inline: 0;
+  }
+
   .together-lead {
     min-height: 100%;
     padding: 1rem;
