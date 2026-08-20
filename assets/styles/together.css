@@ -1,4 +1,18 @@
 /* Together continues the exact expanded product-cell grammar from kaizosha.org. */
+.home-main.together-main,
+.together-main .product-cell.is-active .product-cell__heading {
+  animation: none;
+}
+
+.together-main .home-products,
+.together-main .product-cell,
+.together-main .product-cell__content,
+.together-main .product-cell__detail,
+.together-main .home-logo,
+.together-main .home-logo .brand-lockup {
+  transition-duration: 0s;
+}
+
 .together-return a {
   display: inline-flex;
   min-height: 2rem;

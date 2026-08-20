@@ -18,7 +18,8 @@ the scroll handoff. The destination renders that state immediately:
 
 - the same `home-main` frame, top and bottom bars, drafting grid, tokens, and
   compact Kaizōsha mark;
-- the same active-cell grid-track geometry and 180/420/560ms motion language;
+- the same active-cell grid-track geometry, rendered in its settled state with
+  no entry, exit, or slot transition;
 - the main site's exact Together lead copy;
 - one accessible scroll region that continues into About, Capabilities, and
   Privacy without opening a second interface.
@@ -35,8 +36,13 @@ removes the temporary query parameter. Direct visits use `top-left`.
 - `assets/styles/together.css` only adds the long active-cell continuation.
 - `assets/scripts/site-motion.js` and `document-navigation.js` are the same
   optional progressive enhancements used by Kaizōsha.
-- `assets/scripts/together-product.js` owns slot continuation and frame-out
-  navigation. All content remains available without it.
+- `assets/scripts/together-product.js` only owns slot continuation. Native link
+  navigation stays immediate, and all content remains available without it.
+
+Together owns only its product-specific app privacy notice. Company-level
+contact, website privacy, legal, marketing, and help destinations remain on
+`kaizosha.org`; this site links to those canonical pages instead of duplicating
+them.
 
 ## Build and hosting
 

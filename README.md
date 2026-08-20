@@ -8,6 +8,10 @@ on `kaizosha.org`. It keeps the same frame, toolbar, status bar, two-tone system
 compact mark, typography, grid, and motion. Scrolling the one expanded surface
 reveals the product details without changing to a second interface.
 
+Together keeps only its app-specific privacy notice locally. Shared company
+pages such as Contact and website Privacy use their canonical `kaizosha.org`
+routes.
+
 ## Local preview
 
 ```sh
