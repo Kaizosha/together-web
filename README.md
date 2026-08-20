@@ -6,7 +6,9 @@ video-captioning app for iPhone and iPad.
 The root route is the direct continuation of the expanded Together product cell
 on `kaizosha.org`. It keeps the same frame, toolbar, status bar, two-tone system,
 compact mark, typography, grid, and motion. Scrolling the one expanded surface
-reveals the product details without changing to a second interface.
+reveals the product details without changing to a second interface. When the
+main site supplies its active quadrant, Together renders that exact position in
+the initial response so there is no client-side repositioning after load.
 
 Together keeps only its app-specific privacy notice locally. Shared company
 pages such as Contact and website Privacy use their canonical `kaizosha.org`

@@ -26,8 +26,10 @@ the scroll handoff. The destination renders that state immediately:
 
 The main site passes the active product slot as `?slot=top-left`,
 `?slot=top-right`, `?slot=bottom-left`, or `?slot=bottom-right`. The synchronous
-plain-JavaScript controller swaps the physical cell before first paint and then
-removes the temporary query parameter. Direct visits use `top-left`.
+worker renders that slot directly into the returned root HTML, so the first
+browser frame already matches the originating Kaizōsha quadrant. The small
+plain-JavaScript controller retains the same swap as a static-hosting fallback
+and removes the temporary query parameter. Direct visits use `top-left`.
 
 ## Shared layers
 
@@ -36,8 +38,9 @@ removes the temporary query parameter. Direct visits use `top-left`.
 - `assets/styles/together.css` only adds the long active-cell continuation.
 - `assets/scripts/site-motion.js` and `document-navigation.js` are the same
   optional progressive enhancements used by Kaizōsha.
-- `assets/scripts/together-product.js` only owns slot continuation. Native link
-  navigation stays immediate, and all content remains available without it.
+- `assets/scripts/together-product.js` provides the static-hosting slot fallback
+  and cleans the temporary query parameter. Native link navigation stays
+  immediate, and all content remains available without it.
 
 Together owns only its product-specific app privacy notice. Company-level
 contact, website privacy, legal, marketing, and help destinations remain on
@@ -48,8 +51,9 @@ them.
 
 `tools/build-site.sh` recreates `dist/` from an explicit allowlist. Public files
 are copied to `dist/client/`, and `tools/sites-static-worker.js` becomes
-`dist/server/index.js`. The worker handles HTTPS, canonical redirects, GET/HEAD
-restriction, cache policy, security headers, and 404 no-index headers.
+`dist/server/index.js`. The worker renders the requested root product slot before
+first paint and handles HTTPS, canonical redirects, GET/HEAD restriction, cache
+policy, security headers, and 404 no-index headers.
 
 There is no frontend dependency, package manager, TypeScript, framework,
 runtime API, database, account, or analytics service.

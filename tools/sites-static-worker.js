@@ -35,6 +35,61 @@ const CANONICAL_REDIRECTS = new Map([
   ["/privacy/", "/privacy"],
 ]);
 
+const PRODUCT_SLOTS = new Set([
+  "top-left",
+  "top-right",
+  "bottom-left",
+  "bottom-right",
+]);
+
+function applyProductSlot(html, requestedSlot) {
+  if (!PRODUCT_SLOTS.has(requestedSlot) || requestedSlot === "top-left") {
+    return html;
+  }
+
+  return html
+    .replace(
+      'data-active-slot="top-left"',
+      `data-active-slot="${requestedSlot}"`,
+    )
+    .replace(
+      'class="product-cell is-active" data-product-slot="top-left"',
+      `class="product-cell is-active" data-product-slot="${requestedSlot}"`,
+    )
+    .replace(
+      `class="product-cell" data-product-slot="${requestedSlot}"`,
+      'class="product-cell" data-product-slot="top-left"',
+    );
+}
+
+async function withRequestedProductSlot(response, request, url) {
+  const requestedSlot = url.searchParams.get("slot");
+  const contentType = response.headers.get("Content-Type") || "";
+
+  if (
+    request.method !== "GET" ||
+    url.pathname !== "/" ||
+    !response.ok ||
+    !contentType.startsWith("text/html") ||
+    !PRODUCT_SLOTS.has(requestedSlot)
+  ) {
+    return response;
+  }
+
+  const headers = new Headers(response.headers);
+  const html = applyProductSlot(await response.text(), requestedSlot);
+
+  headers.delete("Content-Encoding");
+  headers.delete("Content-Length");
+  headers.delete("ETag");
+
+  return new Response(html, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 function getCacheControl(pathname, contentType) {
   if (pathname.startsWith("/assets/")) {
     return "public, max-age=31536000, immutable";
@@ -130,7 +185,12 @@ const worker = {
       });
     }
 
-    const response = await env.ASSETS.fetch(request);
+    const assetResponse = await env.ASSETS.fetch(request);
+    const response = await withRequestedProductSlot(
+      assetResponse,
+      request,
+      url,
+    );
     return withSiteHeaders(response, url.pathname);
   },
 };
