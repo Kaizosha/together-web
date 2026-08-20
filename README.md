@@ -37,3 +37,12 @@ There is no package manager, frontend framework, TypeScript, runtime API,
 database, account, analytics SDK, or build dependency. The explicit build
 allowlist produces `dist/client` plus the static Cloudflare worker entrypoint at
 `dist/server/index.js`.
+
+## Shared design
+
+Kaizōsha's main website is the source of truth for `BRAND.md`,
+`DESIGN_SYSTEM.md`, the brand icon, and the shared CSS and JavaScript
+foundations. Together commits synchronized copies so its repository and
+Cloudflare deployment remain completely independent. Product-specific behavior
+stays in `assets/styles/together.css`, `assets/scripts/together-product.js`, and
+the Together worker.

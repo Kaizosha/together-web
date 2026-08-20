@@ -33,8 +33,8 @@ and removes the temporary query parameter. Direct visits use `top-left`.
 
 ## Shared layers
 
-- `assets/styles/brand.css` is copied from the Kaizōsha brand system.
-- `assets/styles/markdown.css` is copied from the Kaizōsha site at `c0b51b1`.
+- `assets/styles/brand.css` and `assets/styles/markdown.css` are synchronized
+  byte-for-byte from the Kaizōsha shared-design source.
 - `assets/styles/together.css` only adds the long active-cell continuation.
 - `assets/scripts/site-motion.js` and `document-navigation.js` are the same
   optional progressive enhancements used by Kaizōsha.
@@ -57,3 +57,7 @@ policy, security headers, and 404 no-index headers.
 
 There is no frontend dependency, package manager, TypeScript, framework,
 runtime API, database, account, or analytics service.
+
+The main-site command `tools/sync-shared-design.sh ../together-web` updates the
+committed shared core while Together keeps its content, product extensions, and
+Cloudflare configuration independent.

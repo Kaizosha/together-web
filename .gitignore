@@ -1,4 +1,4 @@
-# OS generated files
+# Operating-system files
 .DS_Store
 .DS_Store?
 ._*
@@ -7,32 +7,44 @@
 ehthumbs.db
 Thumbs.db
 
-# Editor files
+# Editors
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Logs and local runtime data
+# Logs, coverage, and local runtime state
 *.log
 *.pid
 *.seed
 *.pid.lock
+coverage/
+.nyc_output/
+
+# Dependencies and tool caches
+node_modules/
+jspm_packages/
+.npm/
+.yarn-integrity
 .wrangler/
 .next/
 .vinext/
+
+# Generated output and local exports
+dist/
 outputs/
 work/
+*.tgz
 
-# Generated deployment output
-dist/
-
-# Legacy dependency directories are ignored if still present locally
-node_modules/
-
-# Environment and temporary files
+# Local secrets
 .env
 .env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+
+# Temporary files
 *.tmp
 *.temp
