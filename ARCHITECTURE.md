@@ -26,9 +26,7 @@ the scroll handoff. The destination renders that state immediately:
 
 The main site passes the active product slot as `?slot=top-left`,
 `?slot=top-right`, `?slot=bottom-left`, or `?slot=bottom-right`. The synchronous
-worker renders that slot directly into the returned root HTML, so the first
-browser frame already matches the originating Kaizōsha quadrant. The small
-plain-JavaScript controller retains the same swap as a static-hosting fallback
+plain-JavaScript controller applies the slot during the initial document render
 and removes the temporary query parameter. Direct visits use `top-left`.
 
 ## Shared layers
@@ -38,8 +36,8 @@ and removes the temporary query parameter. Direct visits use `top-left`.
 - `assets/styles/together.css` only adds the long active-cell continuation.
 - `assets/scripts/site-motion.js` and `document-navigation.js` are the same
   optional progressive enhancements used by Kaizōsha.
-- `assets/scripts/together-product.js` provides the static-hosting slot fallback
-  and cleans the temporary query parameter. Native link navigation stays
+- `assets/scripts/together-product.js` applies the incoming product slot and
+  cleans the temporary query parameter. Native link navigation stays
   immediate, and all content remains available without it.
 
 Together owns only its product-specific app privacy notice. Company-level
@@ -47,17 +45,18 @@ contact, website privacy, legal, marketing, and help destinations remain on
 `kaizosha.org`; this site links to those canonical pages instead of duplicating
 them.
 
-## Build and hosting
+## Cloudflare Pages hosting
 
-`tools/build-site.sh` recreates `dist/` from an explicit allowlist. Public files
-are copied to `dist/client/`, and `tools/sites-static-worker.js` becomes
-`dist/server/index.js`. The worker renders the requested root product slot before
-first paint and handles HTTPS, canonical redirects, GET/HEAD restriction, cache
-policy, security headers, and 404 no-index headers.
+The repository root is the complete public site. Cloudflare Pages connects to
+the Git repository with framework preset `None`, production branch `main`, no
+build command, and build output directory `.`. A push to `main` publishes the
+committed static files directly. Pages supplies extensionless HTML routing and
+the custom `404.html`; `_redirects` canonicalizes `/privacy/`, and `_headers`
+supplies the security, cache, language, and no-index policies.
 
 There is no frontend dependency, package manager, TypeScript, framework,
 runtime API, database, account, or analytics service.
 
 The main-site command `tools/sync-shared-design.sh ../together-web` updates the
 committed shared core while Together keeps its content, product extensions, and
-Cloudflare configuration independent.
+Cloudflare Pages project independent.
