@@ -4,10 +4,11 @@ The standalone product site for Together, Kaizōsha’s local-first video-captio
 app for iPhone and iPad. The intended public hostname is
 `https://together.kaizosha.org`.
 
-The site extends the two-tone Kaizōsha visual system with an adjustable
-source/translation alignment seam and a continuous timed-cue narrative. Product
-copy and the app-specific privacy notice come from the adjacent Together iOS
-project.
+The site uses the same two-tone markdown system and spatial product structure as
+the main Kaizōsha website. Its opening frame matches the Kaizōsha homepage
+handoff exactly, then turns Caption, Translate, Export, and Private into four
+physical fields that expand through hover, focus, or touch. Product copy and the
+app-specific privacy notice come from the adjacent Together iOS project.
 
 ## Local development
 
@@ -29,9 +30,11 @@ node --test tests/rendered-html.test.mjs
 
 ## Routes
 
-- `/` — product page with an interactive caption-alignment instrument
+- `/` — interactive Together capability directory
 - `/privacy` — Together’s app-specific privacy notice
-- `/robots.txt` and `/sitemap.xml` — search-engine metadata
+- `/manifest.webmanifest`, `/robots.txt`, and `/sitemap.xml` — app and search metadata
 
-Hosting configuration lives in `.openai/hosting.json`. Optional D1/R2 starter
-infrastructure remains available but is not used by the current site.
+Hosting configuration lives in `.openai/hosting.json`. The Cloudflare worker
+adds canonical routing, conservative caching, and baseline security headers.
+Optional D1/R2 starter infrastructure remains available but is not used by the
+current site.

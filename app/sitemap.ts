@@ -4,7 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: "https://together.kaizosha.org/",
-      lastModified: new Date("2026-08-18"),
+      lastModified: new Date("2026-08-19"),
       changeFrequency: "monthly",
       priority: 1,
     },
