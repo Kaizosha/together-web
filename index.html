@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
+    <script>document.documentElement.classList.add("product-page-booting");</script>
     <meta name="theme-color" content="#101010" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#f4f4ef" media="(prefers-color-scheme: light)">
     <title>Together — Kaizōsha</title>
@@ -54,8 +55,8 @@
       }
     </script>
     <link rel="stylesheet" href="/assets/styles/brand.css?v=20260814-two-tone">
-    <link rel="stylesheet" href="/assets/styles/markdown.css?v=20260820-touch-handoff">
-    <link rel="stylesheet" href="/assets/styles/together.css?v=20260820-hidden-scrollbar">
+    <link rel="stylesheet" href="/assets/styles/markdown.css?v=20260821-seamless-handoff-v3">
+    <link rel="stylesheet" href="/assets/styles/together.css?v=20260821-seamless-handoff-v2">
     <script src="/assets/scripts/site-motion.js?v=20260818-dynamic-grid" defer></script>
   </head>
   <body data-page-family="directory" data-page="together">
@@ -73,7 +74,9 @@
       <header class="home-toolbar">
         <span aria-hidden="true">[ README.md ]</span>
         <nav class="home-pagination together-return" aria-label="Product navigation">
-          <a href="https://kaizosha.org/">[ ← KAIZŌSHA ]</a>
+          <a href="https://morph.kaizosha.org/" data-product-previous aria-label="Open the previous Kaizōsha product, Morph">[ PREV ]</a>
+          <span aria-hidden="true">/</span>
+          <a href="https://sekai.kaizosha.org/" data-product-next aria-label="Open the next Kaizōsha product, Sekai">[ NEXT ]</a>
         </nav>
       </header>
 
@@ -100,7 +103,7 @@
                   <a href="https://kaizosha.org/" aria-label="Close Together and return to the Kaizōsha product directory">[ CLOSE ]</a>
                   <a class="product-cell__explore" href="#about" aria-label="Explore Together details">[ EXPLORE ↗ ]</a>
                 </div>
-                <a class="product-cell__scroll-cue together-cue" href="#about">[ SCROLL TO OPEN Together ↓ ]</a>
+                <a class="product-cell__scroll-cue together-cue" href="#about" data-product-cue>[ SCROLL TO OPEN Together ↓ ]</a>
               </div>
             </div>
 
@@ -173,7 +176,74 @@
         </article>
       </div>
 
-      <script src="/assets/scripts/together-product.js?v=20260820-instant-continuation"></script>
+      <script>
+        (() => {
+          const root = document.documentElement;
+
+          try {
+            const allowedSlots = new Set([
+              "top-left",
+              "top-right",
+              "bottom-left",
+              "bottom-right",
+            ]);
+            const main = document.querySelector(".home-main[data-default-slot]");
+            const currentUrl = new URL(window.location.href);
+            const requestedSlot = currentUrl.searchParams.get("slot");
+            const requestedScroll = Number.parseFloat(
+              currentUrl.searchParams.get("scroll") ?? "",
+            );
+            const defaultSlot = main?.dataset.defaultSlot;
+
+            if (
+              main &&
+              allowedSlots.has(requestedSlot) &&
+              allowedSlots.has(defaultSlot)
+            ) {
+              const activeCell = main.querySelector(".product-cell.is-active");
+              const previousSlot = activeCell?.dataset.productSlot;
+              const destinationCell = main.querySelector(
+                `.product-cell[data-product-slot="${requestedSlot}"]`,
+              );
+
+              if (
+                activeCell &&
+                destinationCell &&
+                previousSlot !== requestedSlot
+              ) {
+                destinationCell.dataset.productSlot = previousSlot;
+                activeCell.dataset.productSlot = requestedSlot;
+              }
+
+              main.dataset.activeSlot = requestedSlot;
+            }
+
+            const scrollRegion = main?.querySelector(".product-scroll, .together-scroll");
+
+            if (
+              scrollRegion &&
+              Number.isFinite(requestedScroll) &&
+              requestedScroll > 0
+            ) {
+              scrollRegion.scrollTo({ top: requestedScroll, behavior: "instant" });
+            }
+
+            const cue = main?.querySelector("[data-product-cue]");
+            const productName = main?.dataset.activeProduct ?? "product";
+
+            if (cue) {
+              cue.textContent = window.matchMedia(
+                "(hover: hover) and (pointer: fine)",
+              ).matches
+                ? `[ SCROLL TO OPEN ${productName} ↓ ]`
+                : `[ SWIPE UP TO OPEN ${productName} ↑ ]`;
+            }
+          } finally {
+            root.classList.remove("product-page-booting");
+          }
+        })();
+      </script>
+      <script src="/assets/scripts/together-product.js?v=20260821-seamless-handoff-v4"></script>
 
       <a class="home-logo is-ready" href="https://kaizosha.org/" aria-label="Return to Kaizōsha">
         <span class="brand-lockup" aria-hidden="true">
@@ -186,9 +256,14 @@
       </a>
 
       <footer class="home-statusbar">
-        <nav class="home-legal" aria-label="Together pages">
-          <a href="/privacy" aria-label="Together app privacy">
-            <span class="home-legal__full">[ APP PRIVACY ]</span>
+        <nav class="home-legal" aria-label="Company pages">
+          <a href="https://kaizosha.org/terms" aria-label="Terms">
+            <span class="home-legal__full">[ TERMS ]</span>
+            <span class="home-legal__compact" aria-hidden="true">[ T ]</span>
+          </a>
+          <span aria-hidden="true">/</span>
+          <a href="https://kaizosha.org/privacy" aria-label="Privacy">
+            <span class="home-legal__full">[ PRIVACY ]</span>
             <span class="home-legal__compact" aria-hidden="true">[ P ]</span>
           </a>
           <span aria-hidden="true">/</span>
@@ -197,7 +272,7 @@
             <span class="home-legal__compact" aria-hidden="true">[ C ]</span>
           </a>
         </nav>
-        <span aria-hidden="true">001 / TOGETHER / EOF</span>
+        <span aria-hidden="true">001 / KAIZŌSHA / EOF</span>
       </footer>
     </main>
   </body>

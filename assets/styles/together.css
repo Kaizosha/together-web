@@ -1,5 +1,12 @@
 /* Together continues the exact expanded product-cell grammar from kaizosha.org. */
-.home-main.together-main,
+.home-main.together-main {
+  width: calc(100vw - var(--directory-edge) - var(--directory-edge));
+  height: calc(100vh - var(--directory-edge) - var(--directory-edge));
+  height: calc(100dvh - var(--directory-edge) - var(--directory-edge));
+  min-height: 0;
+  animation: none;
+}
+
 .together-main .product-cell.is-active .product-cell__heading {
   animation: none;
 }
@@ -17,12 +24,15 @@
   display: inline-flex;
   min-height: 2rem;
   align-items: center;
-  padding-inline: 0.2rem;
+  justify-content: center;
+  padding: 0.2rem 0.25rem;
+  border: 0;
+  background: transparent;
   color: inherit;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font: inherit;
+  letter-spacing: inherit;
   text-decoration: none;
+  text-transform: inherit;
   transition:
     background-color var(--speed) ease,
     color var(--speed) ease;
