@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <script>document.documentElement.classList.add("product-page-booting");</script>
+    <script src="/assets/scripts/product-page-boot.js?v=20260821-reverse-handoff-v1"></script>
     <meta name="theme-color" content="#101010" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#f4f4ef" media="(prefers-color-scheme: light)">
     <title>Together — Kaizōsha</title>
@@ -55,7 +55,7 @@
       }
     </script>
     <link rel="stylesheet" href="/assets/styles/brand.css?v=20260814-two-tone">
-    <link rel="stylesheet" href="/assets/styles/markdown.css?v=20260821-seamless-handoff-v3">
+    <link rel="stylesheet" href="/assets/styles/markdown.css?v=20260821-reverse-handoff-v4">
     <link rel="stylesheet" href="/assets/styles/together.css?v=20260821-seamless-handoff-v2">
     <script src="/assets/scripts/site-motion.js?v=20260818-dynamic-grid" defer></script>
   </head>
@@ -161,6 +161,11 @@
               </section>
 
               <p class="together-eof" aria-label="End of Together product details">004 / TOGETHER / EOF</p>
+              <a
+                class="product-cell__scroll-cue product-return-cue"
+                href="https://kaizosha.org/?handoff=return&amp;product=Together&amp;slot=top-left"
+                data-product-return
+              >[ KEEP SCROLLING TO RETURN TO KAIZŌSHA ↓ ]</a>
             </div>
           </div>
         </article>
@@ -176,74 +181,7 @@
         </article>
       </div>
 
-      <script>
-        (() => {
-          const root = document.documentElement;
-
-          try {
-            const allowedSlots = new Set([
-              "top-left",
-              "top-right",
-              "bottom-left",
-              "bottom-right",
-            ]);
-            const main = document.querySelector(".home-main[data-default-slot]");
-            const currentUrl = new URL(window.location.href);
-            const requestedSlot = currentUrl.searchParams.get("slot");
-            const requestedScroll = Number.parseFloat(
-              currentUrl.searchParams.get("scroll") ?? "",
-            );
-            const defaultSlot = main?.dataset.defaultSlot;
-
-            if (
-              main &&
-              allowedSlots.has(requestedSlot) &&
-              allowedSlots.has(defaultSlot)
-            ) {
-              const activeCell = main.querySelector(".product-cell.is-active");
-              const previousSlot = activeCell?.dataset.productSlot;
-              const destinationCell = main.querySelector(
-                `.product-cell[data-product-slot="${requestedSlot}"]`,
-              );
-
-              if (
-                activeCell &&
-                destinationCell &&
-                previousSlot !== requestedSlot
-              ) {
-                destinationCell.dataset.productSlot = previousSlot;
-                activeCell.dataset.productSlot = requestedSlot;
-              }
-
-              main.dataset.activeSlot = requestedSlot;
-            }
-
-            const scrollRegion = main?.querySelector(".product-scroll, .together-scroll");
-
-            if (
-              scrollRegion &&
-              Number.isFinite(requestedScroll) &&
-              requestedScroll > 0
-            ) {
-              scrollRegion.scrollTo({ top: requestedScroll, behavior: "instant" });
-            }
-
-            const cue = main?.querySelector("[data-product-cue]");
-            const productName = main?.dataset.activeProduct ?? "product";
-
-            if (cue) {
-              cue.textContent = window.matchMedia(
-                "(hover: hover) and (pointer: fine)",
-              ).matches
-                ? `[ SCROLL TO OPEN ${productName} ↓ ]`
-                : `[ SWIPE UP TO OPEN ${productName} ↑ ]`;
-            }
-          } finally {
-            root.classList.remove("product-page-booting");
-          }
-        })();
-      </script>
-      <script src="/assets/scripts/together-product.js?v=20260821-seamless-handoff-v4"></script>
+      <script src="/assets/scripts/together-product.js?v=20260821-reverse-handoff-v5"></script>
 
       <a class="home-logo is-ready" href="https://kaizosha.org/" aria-label="Return to Kaizōsha">
         <span class="brand-lockup" aria-hidden="true">
