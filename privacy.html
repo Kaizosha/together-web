@@ -53,15 +53,17 @@
     <link rel="stylesheet" href="/assets/styles/site-language.css?v=20260925-code-only-1">
     <script src="/assets/scripts/site-language.js?v=20260925-code-only-1" defer></script>
     <script src="/assets/scripts/site-motion.js?v=20260818-dynamic-grid" defer></script>
-    <script src="/assets/scripts/document-navigation.js?v=20260814-scroll-gutter" defer></script>
+    <link rel="stylesheet" href="/assets/styles/document-frame.css?v=3e4959a0bffb">
   </head>
-  <body id="top" data-page-family="document" data-page="privacy">
+  <body data-page-family="document" data-page="privacy" data-document-frame>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <main class="main" id="main-content" data-file="together-privacy.md" tabindex="-1">
-      <nav class="document-nav" aria-label="Document navigation">
+    <main class="main document-frame" data-file="together-privacy.md">
+      <header class="home-toolbar document-toolbar">
+        <span class="home-toolbar__file">[ together-privacy.md ]</span>
         <a class="document-back" href="/" aria-label="Back to Together">← Back</a>
-        <span>/ Together Privacy Notice</span>
-      </nav>
+      </header>
+      <div class="document-scroll" id="main-content" role="region" aria-label="Document content" tabindex="0">
+        <div id="top" tabindex="-1"></div>
 
       <section class="section" id="notice">
         <header class="section-head">
@@ -123,12 +125,18 @@
           <p>Questions about Together privacy can be sent through the Kaizōsha contact page: <a href="https://kaizosha.org/contact">https://kaizosha.org/contact</a>.</p>
         </div>
       </section>
-
-      <footer class="document-footer">
-        <a href="/">Together</a>
-        <a href="/privacy" aria-current="page">App Privacy</a>
-        <a href="https://kaizosha.org/privacy">Website Privacy</a>
-        <a href="#top">Back to top</a>
+      </div>
+      <footer class="home-statusbar document-statusbar">
+        <nav class="home-legal" aria-label="Related pages">
+          <a href="/" aria-label="Together"><span class="home-legal__full">Together</span><span class="home-legal__compact" aria-hidden="true">HOME</span></a>
+          <span aria-hidden="true">/</span>
+          <a href="/privacy" aria-current="page" aria-label="App Privacy"><span class="home-legal__full">App Privacy</span><span class="home-legal__compact" aria-hidden="true">APP</span></a>
+          <span aria-hidden="true">/</span>
+          <a href="https://kaizosha.org/privacy" aria-label="Website Privacy"><span class="home-legal__full">Website Privacy</span><span class="home-legal__compact" aria-hidden="true">WEB</span></a>
+          <span aria-hidden="true">/</span>
+          <a href="#top" aria-label="Back to top"><span class="home-legal__full">Back to top</span><span class="home-legal__compact" aria-hidden="true">↑</span></a>
+        </nav>
+        <div class="document-statusbar__end"><span data-language-slot></span><span aria-hidden="true">EOF</span></div>
       </footer>
     </main>
   </body>
