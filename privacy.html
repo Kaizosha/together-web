@@ -35,7 +35,7 @@
         "url": "https://together.kaizosha.org/privacy",
         "name": "Privacy Notice — Together",
         "description": "How the local-first Together app handles videos, captions, permissions, and on-device storage.",
-        "dateModified": "2026-08-09",
+        "dateModified": "2026-11-16",
         "inLanguage": "en",
         "isPartOf": {
           "@type": "WebSite",
@@ -66,12 +66,10 @@
         <div id="top" tabindex="-1"></div>
 
       <section class="section" id="notice">
-        <header class="section-head">
-          <h1 class="section-title">Together Privacy Notice</h1>
-        </header>
+        <header class="section-head"><h1 class="section-title">Together Privacy Notice</h1></header>
         <div class="body-lines">
           <p>Together is a local-first iPhone and iPad app from Kaizōsha. This notice describes the privacy behavior of the Together app. Kaizōsha's website has a separate privacy policy for visits to that website.</p>
-          <p class="document-meta">Last updated: August 9, 2026</p>
+          <p class="document-meta">Last updated: November 16, 2026</p>
         </div>
       </section>
 
@@ -83,11 +81,17 @@
         </div>
       </section>
 
+      <section class="section" id="purchases">
+        <header class="section-head"><h2 class="section-title">PURCHASES</h2></header>
+        <div class="body-lines">
+          <p>Together Unlimited subscriptions are purchased, restored, and managed through Apple's StoreKit and App Store services. Apple processes payment and account information under Apple's terms. Together checks Apple's verified entitlement state to decide whether subscription features are active. Kaizōsha does not receive payment-card details, an App Store receipt, or purchase history from the app. Apple may provide Kaizōsha standard App Store sales, subscription, and financial reports under Apple's services; those reports do not include the videos, captions, transcripts, or language choices used in Together.</p>
+        </div>
+      </section>
+
       <section class="section" id="processing">
         <header class="section-head"><h2 class="section-title">ON-DEVICE PROCESSING</h2></header>
         <div class="body-lines">
-          <p>Together uses Apple system frameworks to play imported videos, generate speech transcripts, translate captions, and export files. Media and the text derived from it are processed on the device and are not uploaded to a Together or Kaizōsha server.</p>
-          <p>Apple may download system language or speech resources under Apple's own terms and privacy policies; Together does not send the imported media or transcript text to Kaizōsha as part of that process.</p>
+          <p>Together uses Apple system frameworks to play imported videos, generate speech transcripts, translate captions, and export files. Media and the text derived from it are processed on the device and are not uploaded to a Together or Kaizōsha server. Apple may download system language or speech resources under Apple's own terms and privacy policies; Together does not send the imported media or transcript text to Kaizōsha as part of that process.</p>
         </div>
       </section>
 
@@ -97,24 +101,52 @@
           <div class="entry-head"><span>Photos</span><span>Together uses Apple's system picker so a person can choose the videos they want to open. It does not request unrestricted photo-library access for that workflow.</span></div>
           <div class="entry-head"><span>Speech Recognition</span><span>Together requests Speech permission only when a person uses realtime captions or transcription. Audio from the selected video is transcribed on the device.</span></div>
           <div class="entry-head"><span>Notifications</span><span>Export notifications are optional, local, and disabled by default. Together requests notification authorization only after a person explicitly enables an export-notification category.</span></div>
+          <div class="entry-head"><span>Device motion</span><span>While the Kaizōsha logo is visible, Together may use the device's gravity vector to position the logo's light. Samples stay in memory and stop when the presentation leaves the foreground. They are not logged, saved, or uploaded. Reduce Motion and Reduce Transparency disable sampling.</span></div>
           <p>Denying a permission leaves unrelated app features available. Permissions can be changed later in iOS or iPadOS Settings.</p>
+        </div>
+      </section>
+
+      <section class="section" id="intelligence">
+        <header class="section-head"><h2 class="section-title">OPTIONAL APPLE INTELLIGENCE</h2></header>
+        <div class="body-lines">
+          <p>Together's optional intelligence uses Apple's on-device system model. It does not send requests to a remote AI provider or save a chat history.</p>
+          <p>When enabled in Preferences, intelligent search uses the typed query and the kind of list being searched. It does not send the model the list's media files, transcript cues, or export titles. Matching against that list happens locally. Help uses the typed question and built-in guide excerpts to select an app-authored answer. Ordinary search and Help remain available without Apple Intelligence.</p>
+          <p>Caption editing is manual and local. Original and translated text, selection, merging, splitting, reordering, removal, Undo, Redo, and Reset operate on the editor draft without sending captions to a generative model. Save Draft stores that draft on the device. Continue Export approves prepared captions for the retained export request. Editing does not change original media or a completed output file.</p>
         </div>
       </section>
 
       <section class="section" id="storage">
         <header class="section-head"><h2 class="section-title">LOCAL STORAGE AND DELETION</h2></header>
         <div class="body-lines">
-          <p>Together temporarily stages only the media needed for an active playback, inspection, or export operation and removes app-owned temporary copies after no operation needs them. A user-selected source file is never deleted by Together.</p>
-          <p>Preferences, caption drafts, and export queue/history state remain on the device. Completed exports remain in the person's chosen Files location until that person deletes them. Queue/history items and exports can be removed using the app's controls or the Files app, as applicable.</p>
-          <p>Deleting Together removes its app-owned container according to iOS or iPadOS behavior; files a person previously saved outside that container remain under that person's control.</p>
-          <p>Local notifications and Live Activities may show an export title, broad stage, and progress on the device. They do not send that content to a Kaizōsha server.</p>
+          <p>Together saves videos imported through Photos, Files, and Open In to the Together folder in Files. Choosing a folder imports its immediate movie files once. Videos already in Together's folder can appear in the library without a second copy. Together keeps local metadata such as the library identifier, filename, title, import origin, and optional playback position.</p>
+          <p><strong>Delete</strong> asks for confirmation before moving the matching library movie to the system trash. An imported movie's external original remains at its source. Together follows library changes made in Files. Together does not upload or synchronize the library between devices.</p>
+          <p>Preferences, caption drafts, export history, and recoverable export work stay on the device. Completed outputs are stored in Together's Exports folder in Files. Clearing export history removes the selected history and its saved work. Completed files remain available in Files until you delete them. Temporary playback and export files are separate from saved work. Deleting Together removes its app-owned container according to iOS or iPadOS behavior. Files you saved outside that container remain under your control.</p>
+          <p>When <strong>Remember Playback Position</strong> is enabled, Together saves unfinished positions for library movies on this device. Finishing a movie clears its saved position. Turning the option off clears all saved positions. Closing Home keeps saved movies in Files. Kaizōsha receives none of these records.</p>
+        </div>
+      </section>
+
+      <section class="section" id="allowance">
+        <header class="section-head"><h2 class="section-title">FREE PREVIEW AND EXPORT ALLOWANCE</h2></header>
+        <div class="body-lines">
+          <p>Basic video playback and native authored or sidecar captions remain free. Together keeps a device-local Keychain record for a 30-minute preview of generated captions and translation, and one free Export. These allowances are independent and can be used with any video.</p>
+          <p>The record contains consumed preview time, a small reservation for an active playback checkpoint, and the identifier and status of the free export. A pending export also retains a source digest so Together can recognize a retry. Completion, retirement, or cancellation removes that digest. The record does not contain a video's path, filename, title, media, captions, transcript, language choices, thumbnail, or StoreKit receipt. It is not synchronized or sent to Kaizōsha.</p>
+          <p>Preview time counts only while generated captions or translation are active and the video advances. Pausing, buffering, and seeking alone do not spend preview time. Basic playback continues when the preview ends. Together also stores local flags indicating whether allowance persistence was attempted or failed. An unreadable allowance record does not grant a new free operation.</p>
+          <p>The Keychain record is separate from the app's container. If iOS retains it after Together is deleted and reinstalled on the same device, Together honors the previous allowance. Retention depends on iOS, signing, and Keychain state and is not guaranteed after every reinstall, restore, or device erase. Deleting Together's container does not guarantee deletion of this record.</p>
+        </div>
+      </section>
+
+      <section class="section" id="notifications">
+        <header class="section-head"><h2 class="section-title">NOTIFICATIONS, LIVE ACTIVITIES, AND WIDGETS</h2></header>
+        <div class="body-lines">
+          <p>Saved export notifications can show a short job code, output type, file format, and the names of the caption languages in the saved file. iOS and iPadOS control whether previews are visible. Notifications exclude media titles, filenames, file paths, destinations, and caption or transcript text. The app uses opaque job and output identifiers, the attempt number, and the event type to open the corresponding export or its folder when you select an action.</p>
+          <p>Live Activities and Export widgets can show an export name, status, and progress on the device. Together shares limited export status with its own widget through a local app group. Kaizōsha does not receive the data shown in notifications, Live Activities, or widgets.</p>
         </div>
       </section>
 
       <section class="section" id="links">
         <header class="section-head"><h2 class="section-title">EXTERNAL LINKS</h2></header>
         <div class="body-lines">
-          <p>Together can open Kaizōsha marketing, help, legal, or contact pages in a web browser. Browsing those pages is governed by the <a href="https://kaizosha.org/privacy">website privacy policy</a> rather than this app notice.</p>
+          <p>Together can open Kaizōsha marketing, help, legal, or contact pages in a web browser. Browsing those pages is covered by the <a href="https://kaizosha.org/privacy">Kaizōsha website privacy policy</a>.</p>
         </div>
       </section>
 
@@ -131,6 +163,8 @@
           <a href="/" aria-label="Together"><span class="home-legal__full">Together</span><span class="home-legal__compact" aria-hidden="true">HOME</span></a>
           <span aria-hidden="true">/</span>
           <a href="/privacy" aria-current="page" aria-label="App Privacy"><span class="home-legal__full">App Privacy</span><span class="home-legal__compact" aria-hidden="true">APP</span></a>
+          <span aria-hidden="true">/</span>
+          <a href="/terms" aria-label="Together Terms"><span class="home-legal__full">Together Terms</span><span class="home-legal__compact" aria-hidden="true">TERMS</span></a>
           <span aria-hidden="true">/</span>
           <a href="https://kaizosha.org/privacy" aria-label="Website Privacy"><span class="home-legal__full">Website Privacy</span><span class="home-legal__compact" aria-hidden="true">WEB</span></a>
           <span aria-hidden="true">/</span>

@@ -10,7 +10,7 @@ reveals the product details without changing to a second interface. When the
 main site supplies its active quadrant, Together's synchronous continuation
 script applies that position during the initial document render.
 
-Together keeps only its app-specific privacy notice locally. Shared company
+Together keeps its app-specific privacy notice and terms summary locally. Shared company
 pages such as Contact and website Privacy use their canonical `kaizosha.org`
 routes.
 
@@ -32,6 +32,7 @@ manual deployment command.
 
 - `/` — permanently expanded Together product surface
 - `/privacy` — Together’s canonical app privacy notice
+- `/terms` — Together’s app license and subscription information
 - `/404.html` — unknown-route recovery
 - `/site.webmanifest`, `/robots.txt`, and `/sitemap.xml` — app and search metadata
 

@@ -20,7 +20,7 @@
     <link rel="manifest" href="/site.webmanifest?v=20260820-live-text-icon">
     <link rel="canonical" href="https://together.kaizosha.org/">
     <meta property="og:title" content="Together — Kaizōsha">
-    <meta property="og:description" content="Private, on-device captions and optional translation for selected videos on iPhone and iPad.">
+    <meta property="og:description" content="Watch videos from your local library with on-device captions and translation. Review transcripts and export subtitles or captioned video.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://together.kaizosha.org/">
     <meta property="og:site_name" content="Together by Kaizōsha">
@@ -33,7 +33,7 @@
     <meta property="og:image:alt" content="The expanded Together product cell inside Kaizōsha's two-tone framed canvas">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Together — Kaizōsha">
-    <meta name="twitter:description" content="Private, on-device captions and optional translation for selected videos on iPhone and iPad.">
+    <meta name="twitter:description" content="Watch videos from your local library with on-device captions and translation. Review transcripts and export subtitles or captioned video.">
     <meta name="twitter:image" content="https://together.kaizosha.org/assets/media/social/together-social-card.png">
     <meta name="twitter:image:alt" content="The expanded Together product cell inside Kaizōsha's two-tone framed canvas">
     <meta name="twitter:site" content="@KaizoshaX">
@@ -43,7 +43,7 @@
         "@context": "https://schema.org",
         "@type": "MobileApplication",
         "name": "Together",
-        "description": "Private, on-device captions and optional translation for selected videos on iPhone and iPad.",
+        "description": "Watch videos from your local library with on-device captions and translation. Review transcripts and export subtitles or captioned video.",
         "url": "https://together.kaizosha.org/",
         "applicationCategory": "MultimediaApplication",
         "operatingSystem": "iOS 26 or later; iPadOS 26 or later",
@@ -100,9 +100,9 @@
               <div class="product-cell__detail" id="product-detail-together">
                 <p class="product-cell__eyebrow" aria-hidden="true">product / 01</p>
                 <p class="product-cell__description">
-                  A Kaizōsha software product currently being prepared for public release.
+                  Watch videos from your local library with on-device captions and translation. Review transcripts and export subtitles or captioned video.
                 </p>
-                <p class="product-cell__meta">Software product / In development</p>
+                <p class="product-cell__meta">iPhone and iPad / iOS and iPadOS 26 or later</p>
                 <div class="product-cell__actions">
                   <a href="https://kaizosha.org/" aria-label="Close Together and return to the Kaizōsha product directory">[ CLOSE ]</a>
                   <a class="product-cell__explore" href="#about" aria-label="Explore Together details">[ EXPLORE ↗ ]</a>
@@ -117,13 +117,14 @@
                 <p class="together-section__index" aria-hidden="true">01 / ABOUT</p>
                 <h2 class="together-section__title" id="about-title">About</h2>
                 <p>
-                  Together helps a person understand a video in another language without sending the video away.
+                  Watch imported videos with captions, follow the transcript, and save a caption file or a new captioned video. Together processes your media on your device.
                 </p>
+                <p>Made in India by Kaizōsha.</p>
                 <ol class="together-steps">
-                  <li>Choose one or more videos.</li>
-                  <li>Confirm the spoken language and optionally choose a translation language.</li>
+                  <li>Import videos from Photos, Files, a folder, or Open In. Find them again in your local library.</li>
+                  <li>Confirm the spoken language and choose a translation language when you want one.</li>
                   <li>Watch with realtime or existing captions.</li>
-                  <li>Review or edit the transcript when needed.</li>
+                  <li>Search the transcript, replay a line, or correct captions before export.</li>
                   <li>Export captions or a captioned video.</li>
                 </ol>
               <!-- anatomy:model:start -->
@@ -164,17 +165,29 @@
                   </div>
                   <div>
                     <dt>Translation</dt>
-                    <dd>Show the original, the translation, or both. Translation begins Off until a target language is chosen. Low Latency is the default; High Fidelity appears only when supported and ready.</dd>
+                    <dd>Show the original, the translation, or both. Choose a target language to turn on translation. Low Latency is the default. High Fidelity is available for supported language pairs and devices when the required resources are ready.</dd>
                   </div>
                   <div>
                     <dt>Export</dt>
                     <dd>Save WebVTT, SRT, TTML, text, Markdown, or JSON caption files. Create a new MOV or MP4 with Together captions as a selectable track or rendered into the picture. The source video is untouched.</dd>
                   </div>
                   <div>
-                    <dt>Platforms</dt>
-                    <dd>iPhone and iPad / iOS and iPadOS 26 / In development.</dd>
+                    <dt>Export progress</dt>
+                    <dd>Track, pause, and resume work in Queue. See progress in Live Activities and Export widgets, and turn on Saved notifications in Preferences.</dd>
+                  </div>
+                  <div>
+                    <dt>Requirements</dt>
+                    <dd>iPhone with iOS 26 or later, or iPad with iPadOS 26 or later. Language and media support depend on the device, recording, and available Apple resources.</dd>
                   </div>
                 </dl>
+              </section>
+
+
+              <section class="together-section" id="access" aria-labelledby="access-title">
+                <h2 class="together-section__title" id="access-title">Free access and Together Unlimited</h2>
+                <p>Local playback and existing captions stay free. You can also try 30 minutes of generated captions and translation while video plays, and complete one single-video export. The two allowances are independent.</p>
+                <p>Together Unlimited offers monthly and annual subscriptions with the same features, including ongoing caption generation, translation, complete transcript tools, and unlimited exports. Prices and billing periods appear in the App Store purchase screen.</p>
+                <p class="together-section__action"><a href="/terms">[ TOGETHER TERMS → ]</a></p>
               </section>
 
               <section class="together-section" id="privacy" aria-labelledby="privacy-title">
@@ -288,7 +301,7 @@
 
       <footer class="home-statusbar">
         <nav class="home-legal" aria-label="Company pages">
-          <a href="https://kaizosha.org/terms" aria-label="Terms">
+          <a href="/terms" aria-label="Together terms">
             <span class="home-legal__full">[ TERMS ]</span>
             <span class="home-legal__compact" aria-hidden="true">[ T ]</span>
           </a>

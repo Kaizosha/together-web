@@ -9,6 +9,7 @@ as `kaizosha.org`.
 | --- | --- | --- |
 | `/` | Expanded Together product continuation | `directory` |
 | `/privacy` | Canonical Together app privacy notice | `document` |
+| `/terms` | App license and subscription information | `document` |
 | `/404.html` | Unknown-route recovery | `error` |
 
 ## Root experience
@@ -40,7 +41,7 @@ and removes the temporary query parameter. Direct visits use `top-left`.
   cleans the temporary query parameter. Native link navigation stays
   immediate, and all content remains available without it.
 
-Together owns only its product-specific app privacy notice. Company-level
+Together owns its product-specific app privacy notice and terms summary. Company-level
 contact, website privacy, legal, marketing, and help destinations remain on
 `kaizosha.org`; this site links to those canonical pages instead of duplicating
 them.
@@ -51,7 +52,7 @@ The repository root is the complete public site. Cloudflare Pages connects to
 the Git repository with framework preset `None`, production branch `main`, no
 build command, and build output directory `.`. A push to `main` publishes the
 committed static files directly. Pages supplies extensionless HTML routing and
-the custom `404.html`; `_redirects` canonicalizes `/privacy/`, and `_headers`
+the custom `404.html`; `_redirects` canonicalizes `/privacy/` and `/terms/`, and `_headers`
 supplies the security, cache, language, and no-index policies.
 
 There is no frontend dependency, package manager, TypeScript, framework,
